@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Serial Port Plotter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="assets/logo.png" alt="Application Logo" id="app-logo">
+        <h1>GRAPHICAL USER INTERFACE</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" id="home-button">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Charts</a>
+                <div class="dropdown-content">
+                    <a href="#" class="chart-link" data-chart="gyro">Gyroscope</a>
+                    <a href="#" class="chart-link" data-chart="accel">Accelerometer</a>
+                    <a href="#" class="chart-link" data-chart="temp">Temperature</a>
+                    <a href="#" class="chart-link" data-chart="altitude">Altitude</a>
+                    <a href="#" class="chart-link" data-chart="pressure">Pressure</a>
+                    <a href="#" class="chart-link" data-chart="humidity">Humidity</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div id="controls">
+            <select id="port-select"></select>
+            <button id="connect-button">Connect</button>
+            <button id="export-button">Export Data</button>
+        </div>
+        <div id="error-message" style="display: none; color: red;"></div>
+        <div id="loading-indicator" class="hidden">Loading...</div>
+        <div id="data-display-container">
+            <div id="gyro-display" class="data-display">Waiting for gyro data...</div>
+            <div id="accel-display" class="data-display">Waiting for accelerometer data...</div>
+            <div id="temp-display" class="data-display">Waiting for temperature data...</div>
+        </div>
+        <div id="charts-container">
+            <div id="top-charts">
+                <div class="chart-wrapper">
+                    <canvas id="gyro-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="accel-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="temp-chart"></canvas>
+                </div>
+            </div>
+            <div id="data-display-container">
+                <div id="altitude-display" class="data-display">Waiting for altitude data...</div>
+                <div id="pressure-display" class="data-display">Waiting for pressure data...</div>
+                <div id="humidity-display" class="data-display">Waiting for humidity data...</div>
+            </div>
+            <div id="bottom-charts">
+                <div class="chart-wrapper">
+                    <canvas id="altitude-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="pressure-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="humidity-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="renderer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
